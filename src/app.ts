@@ -1,30 +1,3 @@
-// import express from "express";
-// import cors from "cors";
-// import dotenv from "dotenv";
-// import dbInit from "./db/init"; // Import your DB initialization function
-// import routes from "./routes";
-
-// dotenv.config();
-
-// const app = express();
-// app.use(cors());
-// app.use(express.json());
-
-// // Initialize database
-// dbInit(); // Initialize database and sync models
-
-// app.use("/api/v1", routes); // Assuming your routes are organized in a 'routes' directory
-
-// app.get("/", (req, res) => {
-//   res.send("Backend is running!");
-// });
-
-// const PORT = process.env.PORT || 5000;
-// const HOST = '0.0.0.0';
-// app.listen(PORT, () => {
-//   console.log(`Server is running on http://${HOST}:${PORT}`);
-// });
-
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
@@ -35,7 +8,19 @@ import testEmailRouter from './utils/test-email'; // Test email route
 dotenv.config();
 
 const app = express();
-app.use(cors());
+
+// Define allowed origins based on your environment
+const allowedOrigins = [
+  "http://localhost:5173",        // local development
+        // production frontend URL (update as needed)
+];
+
+app.use(cors({
+  origin: allowedOrigins,                      // Allow only specified origins
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,                           // Enable credentials if needed
+}));
 
 // ✅ Apply express.raw() only for webhook route
 app.use(
@@ -60,9 +45,6 @@ app.use('/utils', testEmailRouter);
 
 // Server
 const PORT = process.env.PORT || 5000;
-// const HOST = "0.0.0.0";
-
 app.listen(PORT, () => {
   console.log(`🚀 Server is running on http://0.0.0.0:${PORT}`);
 });
-
