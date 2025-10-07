@@ -1,6 +1,6 @@
 [build]
 builder = "railpack"
-buildCommand = "npm ci --omit=dev && npx tsc"
+buildCommand = "sh -c npm ci --omit=dev && npx tsc"
 
 [deploy]
 startCommand = "npm start"
