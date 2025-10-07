@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon --legacy-watch --exec ts-node src/app.ts",
-    "build": "npm install --omit=dev && npx tsc"
+    "build": "npm ci --omit=dev && npx tsc"
     "start": "node dist/app.js"
   },
   "keywords": [],
@@ -46,5 +46,6 @@
     "typescript": "^5.7.3"
   }
 }
+
 
 
