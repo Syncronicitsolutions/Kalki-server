@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon --legacy-watch --exec ts-node src/app.ts",
-    "build": "tsc",
+    "build": "npx tsc",
     "start": "node dist/app.js"
   },
   "engines": {
@@ -46,3 +46,4 @@
     "typescript": "^5.7.3"
   }
 }
+
