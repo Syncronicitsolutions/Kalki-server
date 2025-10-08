@@ -5,11 +5,11 @@
   "type": "commonjs",
   "description": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --legacy-watch --exec ts-node src/app.ts",
-    "build": "npx tsc",
-    "start": "node dist/app.js"
-  },
+  "build": "node ./node_modules/typescript/bin/tsc",
+  "start": "node dist/app.js",
+  "dev": "nodemon --legacy-watch --exec ts-node src/app.ts"
+},
+
   "engines": {
     "node": ">=20.0.0"
   },
@@ -46,4 +46,5 @@
     "typescript": "^5.7.3"
   }
 }
+
 
